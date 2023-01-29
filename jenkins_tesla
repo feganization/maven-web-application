@@ -23,6 +23,7 @@ node{
         }
     }
     stage('7deploytoprod'){
+        sh "sleep 50"
         deploy adapters: [tomcat9(credentialsId: 'tomcatcred', path: '', url: 'http://54.215.214.253:8080')], contextPath: '/opt/tomcat9clea/webapps/prod/', war: 'target/*war'
     }
     stage('8emailnotification'){
